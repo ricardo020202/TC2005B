@@ -61,20 +61,32 @@ document.getElementById("contador").innerHTML = "<br><br>" +
     "La cantidad de numeros positivos es: " + result[4] + "<br>";
 
 function promedio(matrix) {
-    //promedio de las filas de la matriz
     let sum = 0;
-    let count = 0;
+    let average = 0;
+    let average1 = 0;
+    let average2 = 0;
+    let average3 = 0;
     for (let i = 0; i < matrix.length; i++) {
         for (let j = 0; j < matrix[i].length; j++) {
             sum += matrix[i][j];
-            count++;
+        }
+        average = sum / matrix[i].length;
+        sum = 0;
+        if (i + 1 == 1) {
+            average1 = average;
+        } else if (i + 1 == 2) {
+            average2 = average;
+        } else if (i + 1 == 3) {
+            average3 = average;
         }
     }
-    return sum / count;
+    return average1 + " " + average2 + " " + average3;
 }
-
 let matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
 let result1 = promedio(matrix);
 document.getElementById("promedio").innerHTML = "<br><br>" +
     "matrix: " + matrix + "<br>" +
-    "El promedio de los numeros es: " + result1 + "<br>";
+    "El promedio de la fila 1 es: " + result1[0] + "<br>" +
+    "El promedio de la fila 2 es: " + result1[2] + "<br>" +
+    "El promedio de la fila 3 es: " + result1[4] + "<br>";
+
