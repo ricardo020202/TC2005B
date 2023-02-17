@@ -90,3 +90,16 @@ document.getElementById("promedio").innerHTML = "<br><br>" +
     "El promedio de la fila 2 es: " + result1[2] + "<br>" +
     "El promedio de la fila 3 es: " + result1[4] + "<br>";
 
+function reverse_num(num){
+    let reverse = 0;
+    while(num > 0){
+        reverse = reverse * 10 + num % 10;
+        num = Math.floor(num / 10);
+    }
+    return reverse;
+}
+let num = 123456789;
+let result2 = reverse_num(num);
+document.getElementById("reverse").innerHTML = "<br><br>" +
+    "num: " + num + "<br>" +
+    "El numero invertido es: " + result2 + "<br>";
