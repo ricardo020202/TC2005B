@@ -1,0 +1,61 @@
+body {
+    font-family: "Helvetica", "Arial", sans-serif;
+    color: #555;
+}
+
+img {
+    width: 350px;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+}
+
+#galeria {
+    display: flex;
+    justify-content: center;
+}
+
+h1,
+h2,
+h3,
+strong {
+    color: white
+}
+
+h3 {
+    margin-top: 1em;
+    padding-top: 1em;
+}
+
+a {
+    color: #e81c4f;
+}
+
+ul {
+    list-style: none;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-top: 2px solid;
+    margin-top: 50px;
+}
+
+#e-tecnicas {
+    display: flex;
+    justify-content: center;
+}
+
+#ciclo {
+    width: 400px;
+}
