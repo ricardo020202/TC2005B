@@ -16,11 +16,15 @@
 
 <body class="d-flex justify-content-center align-items-center" id="font">
     <div class="container d-flex justify-content-center">
-        <div class="card w-50">
+        <div class="card w-50 popup">
             <div class="card-body mx-5 my-5">
                 <label for="password">Password:</label>
                 <br>
                 <input type="password" placeholder="••••••••" id="password" class="w-100">
+                <div>
+                    <span class="popuptext" id="myPopup">Password must contain at least 8 characters, including 1 uppercase
+                        letter, 1 lowercase letter, 1 number, and 1 special character.</span>
+                </div>
                 <br><br>
                 <label for="validate-password">Validate password:</label>
                 <br>
@@ -31,8 +35,6 @@
             </div>
         </div>
     </div>
-
-
     <script src="./main.js"></script>
 </body>
 

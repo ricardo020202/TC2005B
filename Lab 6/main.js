@@ -27,3 +27,13 @@ font.onmousewheel = () => {
     font.classList = ["d-flex justify-content-center align-items-center"];
     font.classList.add(colores[index]);
 }
+
+let password = document.getElementById("password");
+let popup = document.getElementById("myPopup");
+password.onmouseover = () => {
+    popup.classList.toggle("show");
+}
+
+password.onmouseout = () => {
+    popup.classList.toggle("show");
+}
