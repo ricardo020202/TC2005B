@@ -4,10 +4,24 @@ function validatePassword() {
     let message = document.getElementById("message");
     if (password != validatePassword) {
         message.innerHTML = "Passwords dont match";
-        return false;
     } else if (password == validatePassword && password != "" && validatePassword != "") {
         message.innerHTML = "Passwords match";
-        return true;
+    }
+}
+
+function passwordCheck() {
+    let password = document.getElementById("password").value;
+    let message = document.getElementById("message1");
+    let upperCase = /[A-Z]/g;
+    let lowerCase = /[a-z]/g;
+    let numbers = /[0-9]/g;
+    let special = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g;
+
+    if (password.match(upperCase) && password.match(lowerCase) && password.match(numbers) &&
+        password.match(special) && password.length >= 8) {
+        message.innerHTML = "";
+    } else {
+        message.innerHTML = "Invalid password";
     }
 }
 
@@ -24,7 +38,7 @@ font.onmousewheel = () => {
         "text-dark"
     ]
     const index = Math.floor(Math.random() * colores.length);
-    font.classList = ["d-flex justify-content-center align-items-center"];
+    font.classList = [""];
     font.classList.add(colores[index]);
 }
 
