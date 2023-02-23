@@ -1,19 +1,17 @@
-// console.log("Hola mundo")
 
-// // Manejar archivos
-// const filesystem = require('fs');
-
-// filesystem.writeFileSync('hola.txt', 'hola desde node');
-
-// setTimeout(() => console.log("check mate"), 15000);
+const filesystem = require('fs');
 
 const http = require('http');
 
-const server = http.createServer((request, response) => {
-    console.log(request.url);
-    response.setHeader('Content-Type', 'text/html');
-    response.write("Hola desde node");
-    response.end();
+filesystem.readFile("../Lab 1/index.html",  function (err, html) {
+    if (err) {
+        throw err; 
+    }
+    const server = http.createServer((request, response) => {
+        console.log(request.url);
+        response.setHeader('Content-Type', 'text/html');
+        response.write(html);
+        response.end();
+    })
+    server.listen(3000);
 });
-
-server.listen(3000);
