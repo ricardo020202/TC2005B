@@ -403,4 +403,8 @@ router.get('/preguntas', (request, response) => {
     response.send(preguntas);
 });
 
+router.get('/galeria', (request, response) => {
+
+});
+
 module.exports = router;
