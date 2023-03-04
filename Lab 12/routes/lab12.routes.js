@@ -22,7 +22,7 @@ router.get('/ordenar', (request, response, next) => {
 
 router.post('/ordenar', (request, response, next) => {
     response.render('confirmar', {
-        titulo: 'confirmar orden',
+        titulo: 'Confirmacion de Orden',
         nombre: request.body.nombre,
         apellido: request.body.apellido,
         direccion: request.body.direccion,

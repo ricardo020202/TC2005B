@@ -1,105 +1,109 @@
 <%- include('includes/head.ejs') %>
-<ul>
-    <li>¿Cuál es la diferencia entre Internet y la World Wide Web?
-        <ul>
-            <li>El internet es una red de computadoras que funcionan como nodos que se conectan entre si,
-                mientras que la www es un subdominio que sirve como una especie de almacen de páginas y
-                aplicaciones web</li>
-        </ul>
-    </li>
-    <li>¿Cuáles son las partes de un URL?
-        <ul>
-            <li>Protocolo, subdominio, dominio, extensión, carpeta, recurso y parámetros</li>
-        </ul>
-    </li>
-    <li>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?
-        <ul>
-            <li>GET: Consultar datos</li>
-            <li>HEAD: Conultar los headers de las requests</li>
-            <li>POST: Enviar datos</li>
-            <li>PUT: Cambiar o actualizar datos</li>
-            <li>PATCH: Cambios parciales</li>
-            <li>DELETE: Borrar datos</li>
-        </ul>
-    </li>
-    <li>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y
-        contraseña en algún sitio? ¿Por qué?
-        <ul>
-            <li>
-                Si es para registrar cuenta se utiliza un post, mientras que para iniciar sesion se utiliza get
-            </li>
-        </ul>
-    </li>
-    <li>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un
-        URL?
-        <ul>
-            <li>GET</li>
-        </ul>
-    </li>
-    <li>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?
-        <ul>
-            <li>Código 200 siginifica que todo ocurrio de la manera esperada</li>
-        </ul>
-    </li>
-    <li>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al
-        sitio y se encontró con un error 404? ¿Por qué?
-        <ul>
-            <li>No, ya que el error 404 significa recurso no encontrado, por lo que puede que el usuario haya
-                escrito mal la url o que la pagina a la que quiere acceder ya no exista</li>
-        </ul>
-    </li>
-    <li>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al
-        sitio y se encontró con un error 500? ¿Por qué?
-        <ul>
-            <li>Si, ya que el codigo 500 siginifica error interno del servidor, es decir que algo de la parte
-                del servidor no esta funcionande de la manera adecuada</li>
-        </ul>
-    </li>
-    <li>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos
-        elementos de HTML 4 que en HTML5 estén desaprobados.
-        <ul>
-            <li>Que ya no tiene soporte en la versiones mas recientes de html y que aun puedes llegar a utilizar
-                pero no se recomienda, como type, scope, "u" y strike</li>
-        </ul>
-    </li>
-    <li>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?
-        <ul>
-            <li>
-                HTML5 es el conunto de diferentes tecnologias como CSS y JS, mientras que HTML4 es solo HTML
-            </li>
-        </ul>
-    </li>
-    <li>¿Qué componentes de estructura y estilo tiene una tabla?
-        <ul>
-            <li>TABLE: Inicializa la tabla</li>
-            <li>TR: La filas de la tabla</li>
-            <li>TH: Encabezados de la tabla</li>
-            <li>TD: Casillas de la tabla</li>
-            <li>En HTML5 Se introdujeron las etiquetas de thead, tbody y tfoot</li>
-        </ul>
-    </li>
-    <li>¿Cuáles son los principales controles de una forma HTML5?
-        <ul>
-            <li>
-                Inputs, que pueden ser desde texto, checkbox, selectores, radios y los botones
-            </li>
-        </ul>
-    </li>
-    <li>¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes utilizar la siguiente página para
-        descubrirlo:<a href="http://html5test.com/" target="_blank">http://html5test.com/</a> (Al responder la
-        pregunta recuerda poner el navegador que utilizas)
-        <ul>
-            <li>
-                En navegador chrome 473 de 555 puntos
-            </li>
-        </ul>
-    </li>
-    <li><strong>Sobre el ciclo de vida y desarrollo de los sistemas de información:</strong>
-        <ul>
-            <li>¿Cuál es el ciclo de vida de los sistemas de información?</li>
-            <li><img src="/assets/ciclo.jpg" alt="" style="width: 400px;"></li>
-        </ul>
-    </li>
-</ul>
-<br><br>
+
+<div class="container">
+    <ul>
+        <li>¿Cuál es la diferencia entre Internet y la World Wide Web?
+            <ul>
+                <li>El internet es una red de computadoras que funcionan como nodos que se conectan entre si,
+                    mientras que la www es un subdominio que sirve como una especie de almacen de páginas y
+                    aplicaciones web</li>
+            </ul>
+        </li>
+        <li>¿Cuáles son las partes de un URL?
+            <ul>
+                <li>Protocolo, subdominio, dominio, extensión, carpeta, recurso y parámetros</li>
+            </ul>
+        </li>
+        <li>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?
+            <ul>
+                <li>GET: Consultar datos</li>
+                <li>HEAD: Conultar los headers de las requests</li>
+                <li>POST: Enviar datos</li>
+                <li>PUT: Cambiar o actualizar datos</li>
+                <li>PATCH: Cambios parciales</li>
+                <li>DELETE: Borrar datos</li>
+            </ul>
+        </li>
+        <li>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y
+            contraseña en algún sitio? ¿Por qué?
+            <ul>
+                <li>
+                    Si es para registrar cuenta se utiliza un post, mientras que para iniciar sesion se utiliza get
+                </li>
+            </ul>
+        </li>
+        <li>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un
+            URL?
+            <ul>
+                <li>GET</li>
+            </ul>
+        </li>
+        <li>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?
+            <ul>
+                <li>Código 200 siginifica que todo ocurrio de la manera esperada</li>
+            </ul>
+        </li>
+        <li>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al
+            sitio y se encontró con un error 404? ¿Por qué?
+            <ul>
+                <li>No, ya que el error 404 significa recurso no encontrado, por lo que puede que el usuario haya
+                    escrito mal la url o que la pagina a la que quiere acceder ya no exista</li>
+            </ul>
+        </li>
+        <li>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al
+            sitio y se encontró con un error 500? ¿Por qué?
+            <ul>
+                <li>Si, ya que el codigo 500 siginifica error interno del servidor, es decir que algo de la parte
+                    del servidor no esta funcionande de la manera adecuada</li>
+            </ul>
+        </li>
+        <li>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos
+            elementos de HTML 4 que en HTML5 estén desaprobados.
+            <ul>
+                <li>Que ya no tiene soporte en la versiones mas recientes de html y que aun puedes llegar a utilizar
+                    pero no se recomienda, como type, scope, "u" y strike</li>
+            </ul>
+        </li>
+        <li>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?
+            <ul>
+                <li>
+                    HTML5 es el conunto de diferentes tecnologias como CSS y JS, mientras que HTML4 es solo HTML
+                </li>
+            </ul>
+        </li>
+        <li>¿Qué componentes de estructura y estilo tiene una tabla?
+            <ul>
+                <li>TABLE: Inicializa la tabla</li>
+                <li>TR: La filas de la tabla</li>
+                <li>TH: Encabezados de la tabla</li>
+                <li>TD: Casillas de la tabla</li>
+                <li>En HTML5 Se introdujeron las etiquetas de thead, tbody y tfoot</li>
+            </ul>
+        </li>
+        <li>¿Cuáles son los principales controles de una forma HTML5?
+            <ul>
+                <li>
+                    Inputs, que pueden ser desde texto, checkbox, selectores, radios y los botones
+                </li>
+            </ul>
+        </li>
+        <li>¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes utilizar la siguiente página para
+            descubrirlo:<a href="http://html5test.com/" target="_blank">http://html5test.com/</a> (Al responder la
+            pregunta recuerda poner el navegador que utilizas)
+            <ul>
+                <li>
+                    En navegador chrome 473 de 555 puntos
+                </li>
+            </ul>
+        </li>
+        <li><strong>Sobre el ciclo de vida y desarrollo de los sistemas de información:</strong>
+            <ul>
+                <li>¿Cuál es el ciclo de vida de los sistemas de información?</li>
+                <li><img src="/assets/ciclo.jpg" alt="" style="width: 400px;"></li>
+            </ul>
+        </li>
+    </ul>
+    <br><br>
+</div>
+
 <%- include('includes/foot.ejs') %>
