@@ -1,26 +1,22 @@
-const express = require('express');
-const path = require('path');
-const router = express.Router();
-
-router.get('/', (request, response, next) => {
+exports.get_index = (request, response, next) => {
     response.render('index', {
         titulo: 'M1000R Ficha tecnica',
     });
-});
+};
 
-router.get('/preguntas', (request, response, next) => {
+exports.get_preguntas = (request, response, next) => {
     response.render('preguntas', {
         titulo: 'Preguntas',
     });
-});
+};
 
-router.get('/ordenar', (request, response, next) => {
+exports.get_ordenar = (request, response, next) => {
     response.render('ordenar', {
         titulo: 'Ordenar',
     });
-});
+};
 
-router.post('/ordenar', (request, response, next) => {
+exports.post_ordenar = (request, response, next) => {
     response.render('confirmar', {
         titulo: 'Confirmacion de Orden',
         nombre: request.body.nombre,
@@ -32,6 +28,4 @@ router.post('/ordenar', (request, response, next) => {
         tarjeta: request.body.tarjeta,
         cvv: request.body.cvv,
     });
-});
-
-module.exports = router;
+};

@@ -1,7 +1,7 @@
 {
-  "name": "lab-12",
+  "name": "lab-13",
   "version": "1.0.0",
-  "description": "Laboratorio 12 de la clase de construccion de software",
+  "description": "Laboratorio 13 de la clase de construccion de software",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",

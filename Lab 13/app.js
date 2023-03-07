@@ -16,8 +16,8 @@ app.use((request, response, next) => {
     next(); //Le permite a la petición avanzar hacia el siguiente middleware
 });
 
-const lab12Routes = require('./routes/lab12.routes');
-app.use('/lab12',lab12Routes);
+const lab13Routes = require('./routes/lab13.routes');
+app.use('/lab13',lab13Routes);
 
 
 app.use((request, response, next) => {
