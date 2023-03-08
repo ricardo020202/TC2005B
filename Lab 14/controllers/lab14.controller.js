@@ -5,7 +5,7 @@ exports.login = (request, response, next) => {
     response.render('login', {
         titulo: 'Login',
         users: user.fetchAll(),
-        user: request.session.user || '', 
+        user: request.session.user || '',
     });
 }
 
@@ -17,30 +17,42 @@ exports.post_login = (request, response, next) => {
     user_nuevo.save();
     request.session.user = user_nuevo.username;
     response.status(300).redirect('/lab14/');
-}
+};
 
 exports.get_index = (request, response, next) => {
-    response.render('index', {
-        titulo: 'M1000R Ficha tecnica',
-        users: user.fetchAll(),
-        user: request.session.user || '', 
-    });
+    if (request.session.user) {
+        response.render('index', {
+            titulo: 'M1000R Ficha tecnica',
+            users: user.fetchAll(),
+            user: request.session.user || '',
+        });
+    } else {
+        response.redirect('/lab14/login');
+    }
 };
 
 exports.get_preguntas = (request, response, next) => {
-    response.render('preguntas', {
-        titulo: 'Preguntas',
-        users: user.fetchAll(),
-        user: request.session.user || '', 
-    });
+    if (request.session.user) {
+        response.render('preguntas', {
+            titulo: 'Preguntas',
+            users: user.fetchAll(),
+            user: request.session.user || '',
+        });
+    } else {
+        response.redirect('/lab14/login');
+    }
 };
 
 exports.get_ordenar = (request, response, next) => {
-    response.render('ordenar', {
-        titulo: 'Ordenar',
-        users: user.fetchAll(),
-        user: request.session.user || '', 
-    });
+    if (request.session.user) {
+        response.render('ordenar', {
+            titulo: 'Ordenar',
+            users: user.fetchAll(),
+            user: request.session.user || '',
+        });
+    } else {
+        response.redirect('/lab14/login');
+    }
 };
 
 exports.post_ordenar = (request, response, next) => {
@@ -54,14 +66,15 @@ exports.post_ordenar = (request, response, next) => {
         tarjeta: request.body.tarjeta,
         cvv: request.body.cvv,
         users: user.fetchAll(),
-        user: request.session.user || '', 
+        user: request.session.user || '',
     });
     orden_nueva.save();
     response.status(300).redirect('/lab14/ordenes');
 };
 
 exports.get_ordenes = (request, response, next) => {
-    const cookies = request.get('Cookie') || '';
+    if (request.session.user) {
+        const cookies = request.get('Cookie') || '';
     let consultas = cookies.split('=')[2] || 0;
     consultas++;
 
@@ -71,6 +84,9 @@ exports.get_ordenes = (request, response, next) => {
         titulo: 'Ordenes',
         ordenes: orden.fetchAll(),
         users: user.fetchAll(),
-        user: request.session.user || '', 
+        user: request.session.user || '',
     });
+    } else {
+        response.redirect('/lab14/login');
+    }
 };

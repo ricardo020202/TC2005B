@@ -35,11 +35,13 @@
                 <li><a href="/lab14/">Inicio</a></li>
                 <li><a href="/lab14/preguntas">Preguntas</a></li>
                 <li><a href="/lab14/ordenar">Ordenar</a></li>
-                <% if(users.length > 0) {%>
+                <li><a href="/lab14/ordenes">Ordenes</a></li>
+                <% if(user) {%>
                     <li>Hola <strong><%- user %></strong></li>
                 <% } else { %>
                     <li></li>
                 <% } %>
+                <li><li><a href="/lab14/logout">LogOut</a></li></li>
             </ul>
         </div>
     </nav>
