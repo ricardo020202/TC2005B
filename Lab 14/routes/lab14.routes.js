@@ -13,4 +13,8 @@ router.post('/ordenar', lab14Controller.post_ordenar);
 
 router.get('/ordenes', lab14Controller.get_ordenes);
 
+router.get('/login', lab14Controller.login);
+
+router.post('/login', lab14Controller.post_login);
+
 module.exports = router;

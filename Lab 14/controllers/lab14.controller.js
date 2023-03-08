@@ -1,4 +1,21 @@
 const orden = require('../models/ordenes.model');
+const user = require('../models/users.model');
+
+exports.login = (request, response, next) => {
+    response.render('login', {
+        titulo: 'Login',
+    });
+}
+
+exports.post_login = (request, response, next) => {
+    const user_nuevo = new user({
+        username: request.body.username,
+        password: request.body.password,
+    });
+    user_nuevo.save();
+    request.session.ultima_orden = user_nuevo.username;
+    response.status(300).redirect('/lab14/');
+}
 
 exports.get_index = (request, response, next) => {
     response.render('index', {
@@ -30,6 +47,7 @@ exports.post_ordenar = (request, response, next) => {
         cvv: request.body.cvv,
     });
     orden_nueva.save();
+    request.session.ultima_orden = orden_nueva.nombre;
     response.status(300).redirect('/lab14/ordenes');
 };
 
@@ -43,5 +61,6 @@ exports.get_ordenes = (request, response, next) => {
     response.render('ordenes', {
         titulo: 'Ordenes',
         ordenes: orden.fetchAll(),
+        ultima_orden: request.session.ultima_orden,
     });
 };

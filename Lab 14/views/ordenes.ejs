@@ -30,4 +30,8 @@
     <p>No hay ordenes</p> 
 <% } %>
 
+<% if(ultima_orden != ''){ %>
+  <p>La ultima orden fue de <%= ultima_orden %></p>
+<% } %>
+
 <%- include('includes/foot.ejs') %>
