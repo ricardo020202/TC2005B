@@ -19,8 +19,7 @@ exports.get_ordenar = (request, response, next) => {
 };
 
 exports.post_ordenar = (request, response, next) => {
-    response.render('confirmar', {
-        titulo: 'Confirmacion de Orden',
+    const orden_nueva = new orden({
         nombre: request.body.nombre,
         apellido: request.body.apellido,
         direccion: request.body.direccion,
@@ -30,6 +29,8 @@ exports.post_ordenar = (request, response, next) => {
         tarjeta: request.body.tarjeta,
         cvv: request.body.cvv,
     });
+    orden_nueva.save();
+    response.status(300).redirect('/lab13/ordenes');
 };
 
 exports.get_ordenes = (request, response, next) => {
