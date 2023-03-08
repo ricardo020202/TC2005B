@@ -1,3 +1,5 @@
+const orden = require('../models/ordenes.model');
+
 exports.get_index = (request, response, next) => {
     response.render('index', {
         titulo: 'M1000R Ficha tecnica',
@@ -27,5 +29,12 @@ exports.post_ordenar = (request, response, next) => {
         password: request.body.password,
         tarjeta: request.body.tarjeta,
         cvv: request.body.cvv,
+    });
+};
+
+exports.get_ordenes = (request, response, next) => {
+    response.render('ordenes', {
+        titulo: 'Ordenes',
+        ordenes: orden.fetchAll(),
     });
 };

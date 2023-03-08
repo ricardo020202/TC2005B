@@ -11,4 +11,6 @@ router.get('/ordenar', lab13Controller.get_ordenar);
 
 router.post('/ordenar', lab13Controller.post_ordenar);
 
+router.get('/ordenes', lab13Controller.get_ordenes);
+
 module.exports = router;
