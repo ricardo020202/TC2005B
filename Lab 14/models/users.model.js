@@ -1,9 +1,4 @@
-const users = [
-    {
-        username: 'admin',
-        password: 'admin',
-    },
-];
+const users = [];
 
 module.exports = class Users {
 
