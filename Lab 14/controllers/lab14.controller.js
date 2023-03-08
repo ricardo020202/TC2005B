@@ -34,6 +34,12 @@ exports.post_ordenar = (request, response, next) => {
 };
 
 exports.get_ordenes = (request, response, next) => {
+    const cookies = request.get('Cookie') || '';
+    let consultas = cookies.split('=')[2] || 0;
+    consultas++;
+
+    response.setHeader('Set-Cookie', 'consultas=' + consultas + '; HttpOnly');
+
     response.render('ordenes', {
         titulo: 'Ordenes',
         ordenes: orden.fetchAll(),
