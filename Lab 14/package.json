@@ -1,0 +1,28 @@
+{
+  "name": "lab-14",
+  "version": "1.0.0",
+  "description": "Laboratorio 14 de la clase de construccion de software",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ricardo020202/TC2005B.git"
+  },
+  "keywords": [
+    "lab",
+    "construccion",
+    "software"
+  ],
+  "author": "Jose Ricardo Rosales Castañeda",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
+  }
+}
