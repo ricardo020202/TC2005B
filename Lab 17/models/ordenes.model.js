@@ -39,10 +39,16 @@ module.exports = class Orden {
     }
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
-    save() {
-        return db.execute('INSERT INTO ordenes (nombre, apellido, direccion, telefono, email, password, tarjeta, cvv) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-            [this.nombre, this.apellido, this.direccion, this.telefono, this.email, this.password, this.tarjeta, this.cvv]
-        );
+    save(id) {
+        if (id != 0) {
+            return db.execute('UPDATE ordenes SET nombre = ?, apellido = ?, direccion = ?, telefono = ?, email = ?, password = ?, tarjeta = ?, cvv = ? WHERE id = ?',
+                [this.nombre, this.apellido, this.direccion, this.telefono, this.email, this.password, this.tarjeta, this.cvv, id]
+            );
+        } else {
+            return db.execute('INSERT INTO ordenes (nombre, apellido, direccion, telefono, email, password, tarjeta, cvv) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+                [this.nombre, this.apellido, this.direccion, this.telefono, this.email, this.password, this.tarjeta, this.cvv]
+            );
+        }
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
@@ -51,7 +57,7 @@ module.exports = class Orden {
         if (id != 0) {
             query += ' WHERE id = ?'
             return db.execute(query, [id]);
-        } 
+        }
         return db.execute(query);
     }
 

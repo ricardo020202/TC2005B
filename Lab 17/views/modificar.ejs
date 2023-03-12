@@ -1,0 +1,59 @@
+<%- include('includes/head.ejs') %>
+
+    <h1>
+        <%= titulo %>
+    </h1>
+
+    <div class="container">
+        <h1>
+            <%= titulo %>
+        </h1>
+        <form action="/lab17/modificar/<%= orden.id %>" method="POST">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="first_name" type="text" class="validate" name="nombre" value="<%= orden.nombre %>">
+                    <label for="first_name">Nombre</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate" name="apellido" value="<%= orden.apellido %>">
+                    <label for="last_name">Apellido</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="email" type="email" class="validate" name="email" value="<%= orden.email %>">
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="password" type="password" class="validate" name="password" value="<%= orden.password %>">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="direccion" type="text" class="validate" name="direccion" value="<%= orden.direccion %>">
+                    <label for="direccion">Direccion</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="telefono" type="text" class="validate" name="telefono" value="<%= orden.telefono %>">
+                    <label for="telefono">Telefono</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="tarjeta" type="text" class="validate" name="tarjeta" value="<%= orden.tarjeta %>">
+                    <label for="tarjeta">Tarjeta</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="cvv" type="text" class="validate" name="cvv" value="<%= orden.cvv %>">
+                    <label for="cvv">CVV</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Reservar
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+        <br><br>
+    </div>
+
+    <%- include('includes/foot.ejs') %>

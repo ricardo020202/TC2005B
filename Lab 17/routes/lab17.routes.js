@@ -22,4 +22,10 @@ router.post('/login', lab17Controller.post_login);
 
 router.get('/logout', userController.logout);
 
+router.get('/modificar', lab17Controller.get_modificar);
+
+router.get('/modificar/:id', lab17Controller.get_modificar);
+
+router.post('/modificar/:id', lab17Controller.post_modificar);
+
 module.exports = router;

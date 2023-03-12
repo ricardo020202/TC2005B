@@ -55,6 +55,7 @@ exports.get_ordenar = (request, response, next) => {
 };
 
 exports.post_ordenar = (request, response, next) => {
+    const id = request.params.id || 0;
     const orden_nueva = new orden({
         nombre: request.body.nombre,
         apellido: request.body.apellido,
@@ -66,7 +67,7 @@ exports.post_ordenar = (request, response, next) => {
         cvv: request.body.cvv,
         user: request.session.user || '',
     });
-    orden_nueva.save();
+    orden_nueva.save(id);
     response.status(300).redirect('/lab17/ordenes');
 };
 
@@ -85,3 +86,38 @@ exports.get_ordenes = (request, response, next) => {
         response.redirect('/lab17/login');
     }
 };
+
+exports.get_modificar = (request, response, next) => {
+    const id = request.params.id || 0;
+    if (request.session.user) {
+        orden.fetch(id).then(([rows, fieldData]) => {
+            console.log(rows);
+            response.render('modificar', {
+                titulo: 'Modificar',
+                ordenes: rows,
+                orden : rows[0],
+                user: request.session.user || '',
+            });
+        }).catch(err => console.log(err));
+    } else {
+        response.redirect('/lab17/login');
+    }
+};
+
+exports.post_modificar = (request, response, next) => {
+    const id = request.params.id || 0;
+    const orden_nueva = new orden({
+        nombre: request.body.nombre,
+        apellido: request.body.apellido,
+        direccion: request.body.direccion,
+        telefono: request.body.telefono,
+        email: request.body.email,
+        password: request.body.password,
+        tarjeta: request.body.tarjeta,
+        cvv: request.body.cvv,
+        user: request.session.user || '',
+    });
+    orden_nueva.save(id);
+    response.status(300).redirect('/lab17/ordenes');
+};
+
