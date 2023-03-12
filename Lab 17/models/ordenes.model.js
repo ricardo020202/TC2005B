@@ -1,4 +1,6 @@
-const ordenes = [
+const db = require('../util/database');
+
+/*const ordenes = [
     {
         nombre: 'Juan',
         apellido: 'Perez',
@@ -20,6 +22,7 @@ const ordenes = [
         cvv: '123',
     },
 ];
+*/
 
 module.exports = class Orden {
 
@@ -37,12 +40,19 @@ module.exports = class Orden {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        ordenes.push(this);
+        return db.execute('INSERT INTO ordenes (nombre, apellido, direccion, telefono, email, password, tarjeta, cvv) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            [this.nombre, this.apellido, this.direccion, this.telefono, this.email, this.password, this.tarjeta, this.cvv]
+        );
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
-    static fetchAll() {
-        return ordenes;
+    static fetch(id) {
+        let query = `SELECT * FROM ordenes`;
+        if (id != 0) {
+            query += ' WHERE id = ?'
+            return db.execute(query, [id]);
+        } 
+        return db.execute(query);
     }
 
 }

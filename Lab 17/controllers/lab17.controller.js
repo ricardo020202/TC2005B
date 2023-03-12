@@ -25,7 +25,6 @@ exports.get_index = (request, response, next) => {
     if (request.session.user) {
         response.render('index', {
             titulo: 'M1000R Ficha tecnica',
-            users: user.fetchAll(),
             user: request.session.user || '',
         });
     } else {
@@ -37,7 +36,6 @@ exports.get_preguntas = (request, response, next) => {
     if (request.session.user) {
         response.render('preguntas', {
             titulo: 'Preguntas',
-            users: user.fetchAll(),
             user: request.session.user || '',
         });
     } else {
@@ -49,7 +47,6 @@ exports.get_ordenar = (request, response, next) => {
     if (request.session.user) {
         response.render('ordenar', {
             titulo: 'Ordenar',
-            users: user.fetchAll(),
             user: request.session.user || '',
         });
     } else {
@@ -67,7 +64,6 @@ exports.post_ordenar = (request, response, next) => {
         password: request.body.password,
         tarjeta: request.body.tarjeta,
         cvv: request.body.cvv,
-        users: user.fetchAll(),
         user: request.session.user || '',
     });
     orden_nueva.save();
@@ -75,19 +71,16 @@ exports.post_ordenar = (request, response, next) => {
 };
 
 exports.get_ordenes = (request, response, next) => {
+    const id = request.params.id || 0;
     if (request.session.user) {
-        const cookies = request.get('Cookie') || '';
-    let consultas = cookies.split('=')[2] || 0;
-    consultas++;
-
-    response.setHeader('Set-Cookie', 'consultas=' + consultas + '; HttpOnly');
-
-    response.render('ordenes', {
-        titulo: 'Ordenes',
-        ordenes: orden.fetchAll(),
-        users: user.fetchAll(),
-        user: request.session.user || '',
-    });
+        orden.fetch(id).then(([rows, fieldData]) => {
+            console.log(rows);
+            response.render('ordenes', {
+                titulo: 'Ordenes',
+                ordenes: rows,
+                user: request.session.user || '',
+            });
+        }).catch(err => console.log(err));
     } else {
         response.redirect('/lab17/login');
     }

@@ -12,6 +12,8 @@ router.get('/ordenar', lab17Controller.get_ordenar);
 
 router.post('/ordenar', lab17Controller.post_ordenar);
 
+router.get('/ordenes/:id', lab17Controller.get_ordenes);
+
 router.get('/ordenes', lab17Controller.get_ordenes);
 
 router.get('/login', lab17Controller.login);
