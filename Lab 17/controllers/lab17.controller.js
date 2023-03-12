@@ -2,11 +2,13 @@ const orden = require('../models/ordenes.model');
 const user = require('../models/users.model');
 
 exports.login = (request, response, next) => {
-    response.render('login', {
-        titulo: 'Login',
-        users: user.fetchAll(),
-        user: request.session.user || '',
-    });
+    user.fetchAll().then(([rows, fieldData]) => {
+        response.render('login', {
+            titulo: 'Login',
+            users: rows,
+            user: request.session.user || '',
+        });
+    }).catch(err => console.log(err));
 }
 
 exports.post_login = (request, response, next) => {
