@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-03-2023 a las 01:49:29
+-- Tiempo de generación: 15-03-2023 a las 04:27:39
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -45,7 +45,7 @@ CREATE TABLE `ordenes` (
 
 INSERT INTO `ordenes` (`id`, `nombre`, `apellido`, `direccion`, `telefono`, `email`, `password`, `tarjeta`, `cvv`) VALUES
 (1, 'Juanito', 'Perez', 'calle 1', 123456789, 'jp@tec.mx', '1234', 2147483647, 123),
-(2, 'Ricardo', 'Rosales', 'Paseo de Sofía 218', 2147483647, 'ricoroca2@hotmail.co', '1236547889', 2147483647, 333);
+(2, 'Jose', 'Rosales', 'Paseo de Sofía 218', 2147483647, 'ricoroca2@hotmail.co', '1236547889', 2147483647, 333);
 
 -- --------------------------------------------------------
 
@@ -56,7 +56,7 @@ INSERT INTO `ordenes` (`id`, `nombre`, `apellido`, `direccion`, `telefono`, `ema
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(400) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -80,7 +80,8 @@ ALTER TABLE `ordenes`
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -90,13 +91,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `ordenes`
 --
 ALTER TABLE `ordenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

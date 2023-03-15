@@ -6,6 +6,7 @@ exports.get_signup = (request, response, next) => {
         titulo: 'Sign up',
         isLoggedIn: request.session.isLoggedIn || false,
         user: request.session.user || '',
+        csrfToken: request.csrfToken(),
     });
 };
 
@@ -37,6 +38,7 @@ exports.login = (request, response, next) => {
         isLoggedIn: request.session.isLoggedIn || false,
         user: request.session.user || '',
         mensaje: mensaje,
+        csrfToken: request.csrfToken(),
     });
 }
 

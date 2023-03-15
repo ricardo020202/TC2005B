@@ -4,6 +4,7 @@ exports.get_index = (request, response, next) => {
     response.render('index', {
         titulo: 'M1000R Ficha tecnica',
         user: request.session.user || '',
+        isLoggedIn: request.session.isLoggedIn || false,
     });
 
 };
@@ -12,6 +13,7 @@ exports.get_preguntas = (request, response, next) => {
     response.render('preguntas', {
         titulo: 'Preguntas',
         user: request.session.user || '',
+        isLoggedIn: request.session.isLoggedIn || false,
     });
 };
 
@@ -19,6 +21,8 @@ exports.get_ordenar = (request, response, next) => {
     response.render('ordenar', {
         titulo: 'Ordenar',
         user: request.session.user || '',
+        isLoggedIn: request.session.isLoggedIn || false,
+        csrfToken: request.csrfToken(),
     });
 };
 
@@ -47,6 +51,7 @@ exports.get_ordenes = (request, response, next) => {
             titulo: 'Ordenes',
             ordenes: rows,
             user: request.session.user || '',
+            isLoggedIn: request.session.isLoggedIn || false,
         });
     }).catch(err => console.log(err));
 };
@@ -60,6 +65,8 @@ exports.get_modificar = (request, response, next) => {
             ordenes: rows,
             orden: rows[0],
             user: request.session.user || '',
+            isLoggedIn: request.session.isLoggedIn || false,
+            csrfToken: request.csrfToken(),
         });
     }).catch(err => console.log(err));
 };

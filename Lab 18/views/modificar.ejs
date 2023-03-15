@@ -9,6 +9,7 @@
             <%= titulo %>
         </h1>
         <form action="/lab18/modificar/<%= orden.id %>" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
             <div class="row">
                 <div class="input-field col s6">
                     <input id="first_name" type="text" class="validate" name="nombre" value="<%= orden.nombre %>">

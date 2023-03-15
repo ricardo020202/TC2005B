@@ -6,6 +6,7 @@
 
     <div class="container">
         <form action="/users/signUp" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
             <div class="input-field col s6">
                 <input id="first_name" type="text" class="validate" name="username">
                 <label for="first_name">Username</label>
