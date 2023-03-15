@@ -20,6 +20,9 @@
                             <li><strong>Direccion: </strong><%= orden.direccion %></li>
                           </ul>
                           <a class="waves-effect waves-light btn" href="/lab19/modificar/<%= orden.id %>">Modificar pedido</a>
+                          <% if(privilegios.indexOf('eliminar_ordenes') >= 0){ %>
+                            <a class="waves-effect waves-light btn">Eliminar pedido</a>
+                          <% } %>
                         </div>
                       </div>
                     </div>

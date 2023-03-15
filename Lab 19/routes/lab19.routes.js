@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 const lab19Controller = require('../controllers/lab19.controller');
+const admin = require('../util/admin');
 
 router.get('/', lab19Controller.get_index);
 
@@ -20,5 +21,7 @@ router.get('/modificar', lab19Controller.get_modificar);
 router.get('/modificar/:id', lab19Controller.get_modificar);
 
 router.post('/modificar/:id', lab19Controller.post_modificar);
+
+router.get('/admin', admin, lab19Controller.get_admin);
 
 module.exports = router;

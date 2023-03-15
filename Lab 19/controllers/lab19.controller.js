@@ -52,6 +52,7 @@ exports.get_ordenes = (request, response, next) => {
             ordenes: rows,
             user: request.session.user || '',
             isLoggedIn: request.session.isLoggedIn || false,
+            privilegios: request.session.privilegios || [],
         });
     }).catch(err => console.log(err));
 };
@@ -87,3 +88,12 @@ exports.post_modificar = (request, response, next) => {
     orden_nueva.save(id);
     response.status(300).redirect('/lab19/ordenes');
 };
+
+exports.get_admin = (request, response, next) => {
+    response.render('admin', {
+        titulo: 'Admin',
+        user: request.session.user || '',
+        isLoggedIn: request.session.isLoggedIn || false,
+        csrfToken: request.csrfToken(),
+    });
+}
