@@ -51,7 +51,21 @@ exports.post_login = (request, response, next) => {
                 if (doMatch) {
                     request.session.isLoggedIn = true;
                     request.session.user = rows[0].username;
-                    response.redirect('/lab19/');
+                    user.getPrivilegios(rows[0].username)
+                    .then(([consulta_privilegios, fieldData]) => {
+                        console.log(consulta_privilegios);
+                        const privilegios = [];
+                        for (let privilegio of consulta_privilegios){
+                            privilegios.push(privilegio.nombre);
+                        }
+                        console.log(privilegios);
+                        request.session.privilegios = privilegios;
+
+                        return request.session.save((error) => {
+                            response.redirect('/lab19/');
+                        });
+                    })
+                    .catch((error) => {console.log(error)});
                 } else {
                     request.session.mensaje = "Usuario y/o contraseña incorrecta.";
                     response.redirect('/users/login');
