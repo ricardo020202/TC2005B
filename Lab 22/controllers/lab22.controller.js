@@ -1,4 +1,19 @@
 const orden = require('../models/ordenes.model');
+const user = require('../models/users.model');
+
+exports.get_user = (request, response, next) => {
+    user.fetch(request.session.user)
+        .then(([rows, fieldData]) => {
+            response.render('user', {
+                titulo: 'User',
+                user: request.session.user || '',
+                isLoggedIn: request.session.isLoggedIn || false,
+                users: rows[0],
+            });
+    })
+    .catch((error) => console.log(error)); 
+    
+};
 
 exports.get_index = (request, response, next) => {
     response.render('index', {

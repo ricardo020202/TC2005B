@@ -24,4 +24,6 @@ router.post('/modificar/:id', lab22Controller.post_modificar);
 
 router.get('/admin', admin, lab22Controller.get_admin);
 
+router.get('/user', lab22Controller.get_user);
+
 module.exports = router;

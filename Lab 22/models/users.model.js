@@ -9,6 +9,7 @@ module.exports = class Users {
     constructor(user) {
         this.username = user.username || '';
         this.password = user.password || '';
+        this.imagen = user.imagen || '';
     }
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
@@ -16,8 +17,8 @@ module.exports = class Users {
         return bcrypt.hash(this.password, 12)
         .then((hashedPassword) => {
             this.password = hashedPassword;
-            return db.execute('INSERT INTO users (username, password) VALUES (?, ?)',
-                [this.username, this.password]);
+            return db.execute('INSERT INTO users (username, password, imagen) VALUES (?, ?, ?)',
+                [this.username, this.password, this.imagen]);
         });
     }
 

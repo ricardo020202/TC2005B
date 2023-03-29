@@ -14,6 +14,7 @@ exports.post_signup = (request, response, next) => {
     const user_nuevo = new user({
         username: request.body.username,
         password: request.body.password,
+        imagen: request.file.filename,
     });
     user_nuevo.save()
     .then(([rows, fieldData]) => {

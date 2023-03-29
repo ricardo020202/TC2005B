@@ -5,8 +5,8 @@
     </h1>
 
     <div class="container">
-        <form action="/users/signUp" method="POST">
-            <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+        <form action="/users/signUp" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <div class="input-field col s6">
                 <input id="first_name" type="text" class="validate" name="username">
                 <label for="first_name">Username</label>
@@ -15,10 +15,13 @@
                 <input id="password" type="password" class="validate" name="password">
                 <label for="last_name">Password</label>
             </div>
+            <div class="input-field col s6">
+                <input name="imagen" id="imagen" class="input is-rounded" type="file">
+            </div>
             <button class="btn waves-effect waves-light" type="submit" name="action">Sign Up
                 <i class="material-icons right">send</i>
             </button>
         </form>
     </div>
 
-<%- include('includes/foot.ejs') %>
+    <%- include('includes/foot.ejs') %>
