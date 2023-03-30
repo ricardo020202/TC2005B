@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <title>
+        <%= titulo %>
+    </title>
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        img {
+            width: 350px;
+        }
+    </style>
+</head>
+
+<body class="grey darken-4 white-text">
+    <nav>
+        <div class="nav-wrapper #9e9e9e grey">
+            <a href="/lab24/" class="brand-logo">M1000r</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/lab24/">Inicio</a></li>
+                <li><a href="/lab24/preguntas">Preguntas</a></li>
+                <li><a href="/lab24/ordenar">Ordenar</a></li>
+                <li><a href="/lab24/ordenes">Ordenes</a></li>
+                <% if(isLoggedIn) {%>
+                    <li><a href="/lab24/user">Hola <strong><%- user %></strong></a></li>
+                    <li><a href="/users/logout">Log Out</a></li>
+                <% } else { %>
+                    <li><a href="/users/signUp">Sign Up</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+    <main>
