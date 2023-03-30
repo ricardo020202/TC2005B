@@ -61,4 +61,20 @@ module.exports = class Orden {
         return db.execute(query);
     }
 
+    static find(valor_busqueda) {
+        return db.execute(`
+            SELECT *
+            FROM ordenes
+            WHERE nombre LIKE ? OR 
+            apellido LIKE ? OR 
+            direccion LIKE ? OR 
+            telefono LIKE ? OR 
+            email LIKE ? 
+        `, [
+            '%' + valor_busqueda + '%', '%' + valor_busqueda + '%',
+            '%' + valor_busqueda + '%', '%' + valor_busqueda + '%',
+            '%' + valor_busqueda + '%'
+            ]
+        );
+    }
 }

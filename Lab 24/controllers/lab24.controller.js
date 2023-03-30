@@ -72,6 +72,17 @@ exports.get_ordenes = (request, response, next) => {
     }).catch(err => console.log(err));
 };
 
+exports.get_buscar = (request, response, next) => {
+    orden.find(request.params.valor_busqueda)
+        .then(([rows, fieldData]) => {
+            response.status(200).json({ordenes: rows});
+        })
+        .catch((error) => {
+            console.log(error);
+            response.status(500).json({ error: 'Error al buscar' });
+        });
+};
+
 exports.get_modificar = (request, response, next) => {
     const id = request.params.id || 0;
     orden.fetch(id).then(([rows, fieldData]) => {

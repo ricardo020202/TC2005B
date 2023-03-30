@@ -26,4 +26,6 @@ router.get('/admin', admin, lab24Controller.get_admin);
 
 router.get('/user', lab24Controller.get_user);
 
+router.get('/buscar/:valor_busqueda', lab24Controller.get_buscar);
+
 module.exports = router;
